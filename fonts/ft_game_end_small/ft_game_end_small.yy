@@ -25,6 +25,7 @@
   },
   "ascenderOffset": 2,
   "ascender": 51,
+  "lineHeight": 0,
   "glyphs": {
     "32": {"x":2,"y":2,"w":11,"h":64,"character":32,"shift":11,"offset":0,},
     "33": {"x":75,"y":266,"w":24,"h":64,"character":33,"shift":15,"offset":-1,},

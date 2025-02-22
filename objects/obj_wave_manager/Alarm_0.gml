@@ -1,6 +1,5 @@
 /// @description Wave Manager 
 
-
 /*
 	This alarm will spawn the next enemy in the wave and reset itself
 	only if the current position in the wave is less than the length of the enemy_array.

@@ -1,18 +1,16 @@
 /// @description Gameplay Manager
-
-
-// This variable stores the amount of money currently available to spend
-money = 150;
-
+// This variable stores the amount of time currently available to spend
+money = 180; // Assuming 3 minutes (180 seconds)
 // This variable stores the amount of health the village has
 village_hp = 10;
-
 // This variable stores the money_flash_alpha number,
 // and is how we animate the money text in the HUD.
 money_flash_alpha = 0;
-
 // This variable stores the color we want the money to flash in the hud
 money_flash_color = #E5D110;
+
+// Time decay rate per second (adjust this value for pressure intensity)
+time_decay_rate = 1; 
 
 // This variable stores the village_flash_alpha number,
 // and is how we animate the village hp text in the HUD.

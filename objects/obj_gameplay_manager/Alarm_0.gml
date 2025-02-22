@@ -3,8 +3,8 @@
 // Check if the wave is running
 if (wave_is_running()) 
 {
-	// If the wave is running, increase the amount of money the player has to spend
-	adjust_money(1);
+    // If the wave is running, decrease the amount of time the player has to spend
+    adjust_money(-1); // Decrease time by 1 second
 }
 
 // Reset the alarm for three seconds

@@ -15,42 +15,62 @@ function menu_lock_off()
 	global.menu_lock = false;
 }
 
-/// @description Returns the current amount of money
-/// @returns number
 function get_money()
 {
-	// Uses with() to access the instance of obj_gameplay_manager.
-	// with() only works if an instance of the object exists.
-	with (obj_gameplay_manager)
-	{
-		// Return the number stored in the money variable of obj_gameplay_manager.
-		// return will end the function
-		return money;
-	}
-	
-	// If we make it here, then there is no instance of obj_gameplay_manager to check,
-	// so we will return -1 instead.
-	return - 1;
+    // Uses with() to access the instance of obj_gameplay_manager.
+    // with() only works if an instance of the object exists.
+    with (obj_gameplay_manager)
+    {
+        // Return the number stored in the money variable of obj_gameplay_manager.
+        // return will end the function
+        return money;
+    }
+    
+    // If we make it here, then there is no instance of obj_gameplay_manager to check,
+    // so we will return -1 instead.
+    return -1;
 }
 
-/// @description Adjusts the amount of money available
 /// @param {int} _amount
 function adjust_money(_amount)
 {
-	// Uses with() to access the instance of obj_gameplay_manager.
-	// with() only works if an instance of the object exists.
-	with (obj_gameplay_manager)
-	{
-		// Adjust the amount of money
-		money += _amount;
-		
-		// If the amount is a positive number
-		if (_amount > 0) 
-		{
-			// Set this value to 1 in order to animate the HUD Text
-			money_flash_alpha = 1;
-		}
-	}
+    // Uses with() to access the instance of obj_gameplay_manager.
+    // with() only works if an instance of the object exists.
+    with (obj_gameplay_manager)
+    {
+        // Adjust the amount of money
+        money += _amount;
+        
+        // Ensure money doesn't go below 0 (no negative time)
+        if (money < 0) 
+        {
+            money = 0;
+        }
+        
+        // If the amount is a positive number (reward from defeating enemies)
+        if (_amount > 0) 
+        {
+            // Set this value to 1 in order to animate the HUD Text
+            money_flash_alpha = 1;
+        }
+    }
+}
+
+/// @description Time Decay System
+// This function should be called every second to simulate time decay
+function apply_time_decay()
+{
+    with (obj_gameplay_manager)
+    {
+        // Reduce the available time by the decay rate
+        money -= time_decay_rate;
+        
+        // Ensure money doesn't go below 0 (no negative time)
+        if (money < 0)
+        {
+            money = 0;
+        }
+    }
 }
 
 /// @description Returns the current amount of village health points
