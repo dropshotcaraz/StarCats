@@ -63,7 +63,7 @@ function apply_time_decay()
     with (obj_gameplay_manager)
     {
         // Reduce the available time by the decay rate
-        money -= time_decay_rate;
+        money -= (time_decay_rate * 2);
         
         // Ensure money doesn't go below 0 (no negative time)
         if (money < 0)

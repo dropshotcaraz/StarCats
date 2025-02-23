@@ -20,7 +20,7 @@ if (money_flash_alpha > 0)
 if (game_over) exit;
 
 // Check if the village's hp is less than zero
-if (get_village_hp() <= 0) 
+if ((get_village_hp() <= 0) && (get_money() <= 0))
 {
 	// Use the custom game over function to turn off variables
 	set_game_over();	
